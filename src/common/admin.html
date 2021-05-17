@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Gallery</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="logo">
+            <a class="logo__link" href="../index.html"><i class="fas fa-home"></i></a>
+        </div>
+        <div class="signin">
+            <span>Admin</span>
+            <a class="signin__link" href="../common/sign-in.html">Log Out</a>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <div class="container">
+
+        <select id="filter">
+            <option value="none">none</option>
+            <option class="vote-rating" data-rating-up="true" value="vote_average.desc">vote_rating up</option>
+            <option data-rating-down value="vote_average.asc">vote_rating down</option>
+            <option data-release-top value="release_date.desc">release_date top</option>
+            <option data-release-top value="release_date.asc">release_date down</option>
+          </select>
+          <div class="plus-icon">
+              <a href="../common/add-film.html" style="font-size: 48px; color: black;"> <i class="fas fa-plus-square"></i> </a>
+          </div>
+          <div id="movie-list"></div>
+
+        </div>
+    </main>
+    <div class="pagination">
+        <div class="page" id="prev">Previous Page</div>
+        <div class="current" id="current">1</div>
+        <div class="page" id="next">Next Page</div>
+    </div>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

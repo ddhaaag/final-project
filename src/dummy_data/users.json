@@ -1,0 +1,17 @@
+[
+    {
+        "name": "admin",
+        "mail": "kachanovichvitali@gmail.com",
+        "password": "qwerty"
+    },
+    {
+        "name": "user",
+        "mail": "json@mail.ru",
+        "password": "json" 
+    },
+    {
+        "name": "user",
+        "mail": "vital@gmail.com",
+        "password": "json" 
+    }
+]

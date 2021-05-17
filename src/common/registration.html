@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="../style/registration.css">
+</head>
+<body>
+    
+    <form class="modal-content" action="/action_page.php">
+        <div class="container">
+          <h1>Sign Up</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr>
+          
+          <label></label>
+          <input type="text" class="field" name="name" style="margin-bottom:15px" placeholder="Name" minlength="7" required>
+
+          <label></label>
+          <input type="text" class="field" name="name" style="margin-bottom:15px" placeholder="Surname" minlength="7" required>
+    
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Password" id="password" class="field" required>
+    
+          <label for="psw-repeat"><b>Confirm Password</b></label>
+          <input type="password" placeholder="Confirm Password" id="confirm_password" class="field" required>
+          
+
+    
+          <label for="email"><b>Email</b></label>
+          <input type="text" id="email" placeholder="Enter Email" name="email" required>
+    
+          <div class="clearfix">
+    
+            <!-- <button type="submit" class="signupbtn">Sign Up</button> -->
+            <input type='submit' class='validateBtn' value='Validate' />
+          </div>
+        </div>
+      </form>
+
+      <script src="../js/registr.js"></script>
+
+</body>
+</html>

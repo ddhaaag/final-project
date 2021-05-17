@@ -1,0 +1,16 @@
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.movie {
+    display: flex;
+}
+
+.movie__img {
+    margin-right: 20px;
+}
