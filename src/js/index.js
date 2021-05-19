@@ -105,6 +105,8 @@ function showMovie(data) {
 
        <a href="../src/common/template.html?${id}">      
         <img id="${id}" src="${IMG_URL + poster_path}" alt="${title}">
+
+        C/O https://placeholder.com/>
       </a>    
         <div class="movie__title">
           <h3>${title}</h3>
