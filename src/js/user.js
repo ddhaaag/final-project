@@ -103,7 +103,7 @@ function showMovie(data) {
       movieEL.setAttribute("id", `${id}`);
       movieEL.innerHTML = `
 
-       <a href="../src/common/template.html?${id}">      
+       <a href="../common/template.html?${id}">      
         <img id="${id}" src="${IMG_URL + poster_path}" alt="${title}">
       </a>    
         <div class="movie__title">
