@@ -3,80 +3,43 @@ confirmPassword = document.getElementById("confirm_password"),
 emailInput = document.getElementById('email'),
 passInput = document.getElementById('password'),
 form = document.querySelector('.modal-content'),
-sighUp = document.querySelector('.signupbtn');
+sighUp = document.querySelector('.signupbtn'),
 
 fields = form.querySelectorAll('.field');
 
-// function validatePassword(){
-//     if(password.value != confirmPassword.value) {
-//       confirmPassword.setCustomValidity("Passwords Don't Match");
-//     } else {
-//       confirmPassword.setCustomValidity('');
-//     }
-//   }
-  
-//   password.onchange = validatePassword;
-//   confirmPassword.onkeyup = validatePassword;
-
-// sighUp.addEventListener('click', (e) =>  {
-//   e.preventDefault();
-
-//   fetch('../dummy_data/users.json')
-//       .then(res => res.json())
-//       .then(data => {
-//           checkEmail(data);
-//           console.log(data)
-//       })
-// })
-
-// function checkEmail(data) {
-//   const [admin, user] = data;
-//   if (emailInput.value == admin.mail || emailInput.value == user.mail) {
-//       console.log('hi')
-//       if ( admin.password == passInput.value ) {
-//           alert(`успешная авторизация!`);
-//           setTimeout(function() {
-//               window.location.href = '../index.html';
-//             }, 2 * 1000);
-//       } else {
-//           alert(`пароль неправильный!`)
-//       }
-//   } else {
-//       alert(`Такого пользователя нет`);
-//   }    
-// }
-
-var generateError = function (text) {
-  var error = document.createElement('div')
+let generateError = function (text) {
+  let error = document.createElement('div')
   error.className = 'error'
   error.style.color = 'red'
   error.innerHTML = text
   return error
 }
 
-var removeValidation = function () {
-  var errors = form.querySelectorAll('.error')
+let removeValidation = function () {
+  let errors = form.querySelectorAll('.error')
 
-  for (var i = 0; i < errors.length; i++) {
+  for (let i = 0; i < errors.length; i++) {
     errors[i].remove()
   }
 }
 
-var checkFieldsPresence = function () {
-  for (var i = 0; i < fields.length; i++) {
+let checkFieldsPresence = function () {
+  for (let i = 0; i < fields.length; i++) {
     if (!fields[i].value) {
       console.log('field is blank', fields[i])
-      var error = generateError('Cannot be blank')
+      let error = generateError('Cannot be blank')
       form[i].parentElement.insertBefore(error, fields[i])
     }
   }
 }
 
-var checkPasswordMatch = function () {
+let checkPasswordMatch = function () {
   if (password.value !== confirmPassword.value) {
     console.log('not equals')
-    var error = generateError('Password doesnt match')
+    let error = generateError('Password doesnt match')
     password.parentElement.insertBefore(error, password)
+  } else {
+    return false;
   }
 }
 
@@ -101,12 +64,16 @@ function validate() {
 }
 
 function changePage(value) {
-  
+
   fetch('../dummy_data/users.json')
       .then(res => res.json())
       .then(data => {
           if (data[0]['mail'] === value ) {
             window.location.href = "../common/admin.html";
+          } else if (data[1]['mail'] === value) {
+            window.location.href = "../common/user.html";
+          } else {
+            alert(`Проверьте ваши данные!`);
           }
       })
 }
@@ -123,6 +90,4 @@ form.addEventListener('submit', function (event) {
   checkEmail(emailInput.value)
 
   changePage(emailInput.value)
-
-  // window.location.href = "http://stackoverflow.com";
 })

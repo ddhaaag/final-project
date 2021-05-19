@@ -5,12 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add new movie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     
+    <header class="header">
+        <div class="logo">
+            <a class="logo__link" href="../../index.html"><i class="fas fa-home"></i></a>
+        </div>
+        <div class="signin">
+            <a class="signin__link" href="./src/common/sign-in.html">Sign In/Sign Up</a>
+        </div>
+    </header>
+
     <h1>Add new movie</h1>
 
     <form action="">
+        <div>
+            <input id="title" type="text" placeholder="title" required>
+        </div>
+        <div>
+            <input id="overview" type="text" placeholder="overview" required>
+        </div>
+        <div>
+            <input id="poster-path" type="text" placeholder="poster_path" required>
+        </div>
+        <div>
+            <input id="popular" type="text" placeholder="popularity">
+        </div>
+        <div>
+            <input id="date" type="date">
+        </div>
+        <div>
+            <select name="genres" id="genres">
+                <option value="">genres</option>
+                <option value="action">action</option>
+                <option value="adventure">adventure</option>
+                <option value="animation">animation</option>
+            </select>
+        </div>
+        <div>
+            <input id="vote-average" type="number" placeholder="vote_average">
+        </div>
+        <div>
+            <input id="vote-count" type="number" placeholder="vote_count">
+        </div>
+
+        <input type="checkbox" id="adult" name="adult" checked>
+        <label for="adult">adult</label>
+
+        <div>
+            <input id="add" type="submit" value="Add">
+            <input type="button" value="Clear">
+        </div>
+ 
 
     </form>
 

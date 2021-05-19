@@ -3,8 +3,6 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
-
-
 // const option = document.querySelectorAll('option');
 const filter = document.getElementById('filter');
 // console.log(filter)
@@ -54,9 +52,6 @@ var totalPages = 100;
 var getID = '';
 //
 
-
-// let url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=a002d542c3280c497bec0284722ca778';
-
 getMovies(API_URL);
 
 function getMovies(url) {
@@ -65,8 +60,6 @@ function getMovies(url) {
     .then(response => response.json())
     .then(data => {
       console.log(data.results);
-      //  console.log(data.results[0]['id']);
-      // createMoviePage(data);
       if (data.results.length !== 0) {
         showMovie(data.results);
         currentPage = data.page;
@@ -97,30 +90,39 @@ function showMovie(data) {
 
   data.forEach(movie => {
     const {title, poster_path, vote_average, release_date, id} = movie;
-      const movieEL = document.createElement('div');
-      movieEL.classList.add('movie');
-      const deleteEL = document.createElement('span');
-      deleteEL.classList.add('movie__remove')
-      movieEL.innerHTML = `
 
-       <a href="../common/template.html?${id}">      
-        <img id="${id}" src="${IMG_URL + poster_path}" alt="${title}">
-      </a>    
+      const movieItem = document.createElement('div');
+      movieItem.classList.add('movie__item');
+      movieItem.setAttribute("id", `${id}`);
+
+      movieItem.innerHTML = `
+
+      <div class="movie">
+        <a href="../common/template.html?${id}">      
+          <img id="${id}" src="${IMG_URL + poster_path}" alt="${title}">
+        </a>    
         <div class="movie__title">
           <h3>${title}</h3>
         </div>
-        
+      
         <div class="movie__info">
           <span class="${getColor(vote_average)}">${vote_average}</span>
           <p class="release-date">${release_date}</p>  
         </div>
+      </div>
+      <div class="movie__remove"><i id="${id}" class="fas fa-trash movie__remove"></i></div>
       `
-      movieList.appendChild(movieEL);
+      movieList.appendChild(movieItem);
 
-        deleteEL.innerHTML = `
-        <i id="${id}" class="fas fa-trash"></i>
-        `
-    movieList.append(deleteEL)
+        // deleteEL.innerHTML = `
+        // <i id="${id}" class="fas fa-trash movie__remove"></i>
+        // `
+    // movieList.append(deleteEL)
+
+    movieList.addEventListener('click', (e) => {
+        e.target.parentElement.parentElement.remove();
+        // deleteEL.classList.add('hidden');
+    })
 
   });
 

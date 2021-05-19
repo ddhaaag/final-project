@@ -48,3 +48,22 @@ button:hover {
 .container {
     padding: 16px;
 }
+
+.validateBtn {
+    background-color: #4CAF50;
+    font-size: 20px;
+    display: block;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.75s ease;
+}
+
+.validateBtn:hover {
+    opacity: 0.8;
+}
