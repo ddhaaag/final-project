@@ -109,6 +109,16 @@ a {
     display: block;
 }
 
+.main__top {
+    display: flex;
+    align-items: center;
+}
+
+#filter {
+    margin-right: 15px;
+    height: 25px;
+}
+
 /* PAGINATION */ 
 
 .pagination{
